@@ -1,0 +1,40 @@
+{
+  "name": "koa-cli",
+  "version": "1.0.0",
+  "description": "koa项目脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tslint": "tslint -c ./src/tslint.json -p tslint.json",
+    "lint": "tslint -c ./src/tslint.json ./src/**/*.ts ./src/*.ts --fix",
+    "build": "rm -rf dist && yarn run tslint && tsc",
+    "start": "yarn run serve",
+    "dev": "nodemon --watch ./src/**/* -e ts,tsx --exec ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laizimo/koa-cli.git"
+  },
+  "keywords": [
+    "koa",
+    "cli",
+    "node"
+  ],
+  "author": "mowen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laizimo/koa-cli/issues"
+  },
+  "homepage": "https://github.com/laizimo/koa-cli#readme",
+  "dependencies": {
+    "@oclif/command": "^1.5.12",
+    "koa": "^2.7.0"
+  },
+  "bin": {
+    "koa-cli": "./bin/run"
+  },
+  "oclif": {
+    "commands": "./dist/command",
+    "bin": ""
+  }
+}
